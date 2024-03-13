@@ -1,0 +1,7 @@
+echo "# project100" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/retFe3737/project100.git
+git push -u origin main
