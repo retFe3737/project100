@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문 페이지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Dongle", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-image: url('https://github.com/retFe3737/project100/blob/main/%E2%80%94Pngtree%E2%80%94memphis%20style%20pattern%20background_1338953.png?raw=true');
+            background-size: 100% auto; 
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .question-container {
+            text-align: center;
+            margin-bottom: 30px; /* 선지들 사이의 간격 더 벌리기 */
+            max-width: 600px;
+            width: 100%;
+            background-color: #FFFFFF; /* 흰색 질문 블록 배경 색상 */
+            border-radius: 10px; /* 둥근 테두리 */
+            padding: 20px 50px; /* 내용과 상자의 간격 조절 */
+            transition: opacity 0.5s ease; /* 페이드 인/아웃 트랜지션 */
+            position: absolute; /* 화면 중앙에 위치하기 위해 절대 위치 지정 */
+            top: 50%; /* 화면 상단에서 절반의 위치로 조정 */
+            left: 50%; /* 화면 좌측에서 절반의 위치로 조정 */
+            transform: translate(-50%, -50%); /* 중앙 정렬 */
+        }
+
+        .option-btn {
+            margin: 10px auto; /* 위아래 여백 10px, 좌우는 자동으로 가운데 정렬 */
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: "Dongle", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            display: block;
+            background-color: transparent; /* 배경색 투명 */
+            width: 80%; /* 선지 블록 너비 설정 */
+            background-color: #FFFFC2; /* 연한 노란색 배경 유지 */
+            border: 2px solid #868675; /* 테두리 추가 */
+        }
+
+        .option-btn:hover {
+            background-color: rgba(220, 228, 160, 0.721); /* 마우스 오버시 약간의 투명한 배경색 */
+        }
+
+        .image-container {
+            margin-bottom: 50px; /* 이미지와 선지들 간의 간격 늘리기 */
+        }
+
+        .question-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 40px;
+        }
+
+        #result-container {
+            display: none;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #result-text {
+            font-size: 24px;
+        }
+
+        .result-page {
+            display: none;
+        }
+
+        .result-page.active {
+            display: block;
+        }
+
+        .start-page {
+            text-align: center;
+            font-size:24px;
+            max-width: 600px;
+            width: 80%;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .start-btn {
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: "Dongle", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #FFFFC2; /* 연한 노란색 배경 유지 */
+            border: 2px solid #868675; /* 테두리 추가 */
+        }
+
+        .start-btn:hover {
+            background-color: rgba(220, 228, 160, 0.721); /* 마우스 오버시 약간의 투명한 배경색 */
+        }
+    </style>
+</head>
+<body>
+    <div class="start-page" id="start-page">
+        <h1>성안🩷민경 100일 기념 심리테스트</h1>
+        <p>민경아 100일 축하해🩷 우리 썸타던 시절, 민경이에 대해 더 알고싶어서</p>
+        <p>심리테스트 많이 했었는데 기억해?? 그때 설레던 마음을 담아서 직접 만들어봤어!</p>
+        <p>100일동안 너무 행복하고 고마웠고, 앞으로도 쭉 잘부탁해🩷</p>
+            <button class="        <button class="start-btn" onclick="startTest()">시작하기</button>
+    </div>
+
+    <div class="question-container" id="question1" style="display:none;">
+        <h1>1. 드디어 한국으로 돌아왔다! 남자친구와 가장 먼저 하고싶은 것은? </h1>
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/retFe3737/project100/cc0ba828543d7d621f3d1136a380caf5f5fa60e5/1.png" alt="1번 질문 이미지">
+        </div>https://github.com/retFe3737/project100/blob/main/KakaoTalk_20240314_172249242.png?raw=true
+        <div>
+            <button class="option-btn" onclick="selectOption(1, 1)">1. 눈물의 상봉을 하고 엉엉 운다😭</button>
+            <button class="option-btn" onclick="selectOption(1, 2)">2. 손잡고 좋은 경치를 보러 공원으로 간다😘 </button>
+            <button class="option-btn" onclick="selectOption(1, 3)">3. 1분 1초가 아까워! 은밀하고 어두운 곳으로 끌고간다😳</button>
+option-btn" onclick="selectOption(1, 4)">4. 할 얘기가 너무 많아! 당장 카페로 끌고간다😋</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question2" style="display:none;">
+        <h1>2. 너무 결혼하고싶어! 우리의 신혼여행지는 어디가 될까?</h1>
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/retFe3737/project100/cc0ba828543d7d621f3d1136a380caf5f5fa60e5/3.png" alt="2번 질문 이미지">
+        </div>
+        <div>
+            <button class="option-btn" onclick="selectOption(2, 1)">아름다운 경치가 있는 슬로베니아🧡</button>
+            <button class="option-btn" onclick="selectOption(2, 2)">인기 신혼여행지 1순위 발리🩷</button>
+            <button class="option-btn" onclick="selectOption(2, 3)">낭만과 청춘이 함께하는 페루💛</button>
+            <button class="option-btn" onclick="selectOption(2, 4)">함께라면 어디든 좋아!🩵</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question3" style="display:none;">
+        <h1>3. 애칭으로 불러달라는 남자친구! 앞으로 뭐라고 불러야할까???</h1>
+        <div class="image-container">
+            <img src="https://github.com/retFe3737/project100/blob/main/KakaoTalk_20240314_172249242.png?raw=true" alt="3번 질문 이미지">
+        </div>
+        <div>
+            <button class="option-btn" onclick="selectOption(3, 1)">자기야~💕</button>
+            <button class="option-btn" onclick="selectOption(3, 2)">오빠~💕</button>
+            <button class="option-btn" onclick="selectOption(3, 3)">성안아~(??)</button>
+            <button class="option-btn" onclick="selectOption(3, 4)">성안오빠자기~(...???)</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question4" style="display:none;">
+        <h1>4. 함께했던 100일, 너무나도 사랑했고 고마웠어💕 받고싶은 선물은?</h1>
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/retFe3737/project100/cc0ba828543d7d621f3d1136a380caf5f5fa60e5/2.png" alt="4번 질문 이미지">
+        </div>
+        <div>
+            <button class="option-btn" onclick="selectOption(4, 1)">진심 가득한 편지💌</button>
+            <button class="option-btn" onclick="selectOption(4, 2)">민경이 데리러갈게! 우버 기프티콘🚕</button>
+            <button class="option-btn" onclick="selectOption(4, 3)">너무 보고싶어ㅠㅠ 사진 내놔!📷</button>
+            <button class="option-btn" onclick="selectOption(4, 4)">하루종일 공주로 지내기! 공주 전용 쿠폰👸</button>
+        </div>
+    </div>
+
+    <div id="result-container">
+        <div class="result-page" id="result-1">
+            <img src="https://github.com/retFe3737/project100/blob/main/KakaoTalk_20240314_175112657.png?raw=true" alt="결과 이미지">
+        </div>
+        <div class="result-page" id="result-2">
+            <img src="https://github.com/retFe3737/project100/blob/main/KakaoTalk_20240314_175653426.png?raw=true" alt="결과 이미지">
+            <p>저번에 준 쿠폰도 잘 썼지?? 우버 탈일 많으니까 이것도 써줘!</p>
+        </div>
+        <div class="result-page" id="result-3">
+            <img src="https://github.com/retFe3737/project100/blob/main/KakaoTalk_20240314_175350904.png?raw=true" alt="결과 이미지">
+            <p>보고싶지?? 사진 보면서 조금만 더 버텨😭</p>
+        </div>
+        <div class="result-page" id="result-4">
+            <img src="https://github.com/retFe3737/project100/blob/main/KakaoTalk_20240314_175005011.png?raw=true" alt="결과 이미지">
+            <p>하루동안 민경이 해달라는거 다해주는 쿠폰! 원할때 써주십시오</p>
+        </div>
+    </div>
+
+    <script>
+        let optionCounts = [0, 0, 0, 0];
+
+        function startTest() {
+            document.getElementById('start-page').style.display = 'none';
+            document.getElementById('question1').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('question1').style.opacity = '1';
+            }, 100); // 0.1초 지연 후 페이드 인
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            optionCounts[questionIndex - 1] = optionIndex;
+            showNextQuestion(questionIndex);
+        }
+
+        function showNextQuestion(questionIndex) {
+            const currentQuestion = document.getElementById('question' + questionIndex);
+            currentQuestion.style.opacity = '0';
+            setTimeout(() => {
+                currentQuestion.style.display = 'none';
+                if (questionIndex < 4) {
+                    const nextQuestion = document.getElementById('question' + (questionIndex + 1));
+                    nextQuestion.style.display = 'block';
+                    setTimeout(() => {
+                        nextQuestion.style.opacity = '1';
+                    }, 100); // 0.1초 지연 후 페이드 인
+                } else {
+                    showResult();
+                }
+            }, 500); // 0.5초 지연 후 페이드 아웃
+        }
+
+        function showResult() {
+            const resultContainer = document.getElementById('result-container');
+            const resultPages = resultContainer.getElementsByClassName('result-page');
+            const selectedOption = optionCounts[3]; // 마지막 질문의 답을 가져옴
+            for (let i = 0; i < resultPages.length; i++) {
+                resultPages[i].classList.remove('active');
+            }
+            const selectedResultPage = document.getElementById('result-' + selectedOption);
+            selectedResultPage.classList.add('active');
+            resultContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
